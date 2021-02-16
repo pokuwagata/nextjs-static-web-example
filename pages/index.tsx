@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Button } from "../components/Button";
+import { Accordion } from "../components/Accordion";
 
 export default function Home() {
   return (
@@ -8,7 +8,9 @@ export default function Home() {
         <title>Home</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Button></Button>
+      <div style={{ width: "50%", margin: "10px auto" }}>
+        <Accordion />
+      </div>
     </div>
   );
 }
