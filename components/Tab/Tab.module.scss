@@ -1,0 +1,33 @@
+.tab__items {
+  border-bottom: 2px solid rgb(226, 232, 240);
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+.tab__item {
+  background-color: #fff;
+  border-bottom: inherit;
+  border-width: 0 0 2px 0;
+  cursor: pointer;
+  margin-bottom: -2px;
+  padding: 1rem;
+
+  &--active {
+    border-bottom: 2px solid currentColor;
+    color: rgb(43, 108, 176);
+  }
+}
+
+.tab__panels {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.tab__panel {
+  display: none;
+
+  &--active {
+    display: block;
+  }
+}

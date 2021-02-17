@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Accordion } from "../components/Accordion";
+import { Tab } from "../components/Tab";
 
 export default function Home() {
   return (
@@ -9,7 +9,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div style={{ width: "50%", margin: "10px auto" }}>
-        <Accordion />
+        <Tab />
       </div>
     </div>
   );

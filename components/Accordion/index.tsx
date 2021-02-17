@@ -1,4 +1,3 @@
-import Rea from "react";
 import { useState } from "react";
 import styles from "./accordion.module.scss";
 
