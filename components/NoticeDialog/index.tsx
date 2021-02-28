@@ -1,23 +1,24 @@
-import { useLayoutEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import styles from "./NoticeDialog.module.scss";
 
 export default function NoticeDialog() {
-  const [hasOpened, setHasOpened] = useState(false);
+  const [stopped, setStopped] = useState(() => {
+    return !!window.localStorage.getItem("modal");
+  });
+  const [open, setOpen] = useState(!stopped);
+
+  useEffect(() => {
+    stopped && window.localStorage.setItem("modal", String(stopped));
+  }, [stopped]);
+
   const onClicked = () => {
-    setHasOpened(true);
+    setOpen(false);
   };
   const onStopped = () => {
-    onClicked();
-    window.localStorage.setItem("modal", "true");
+    setStopped(true);
   };
 
-  useLayoutEffect(() => {
-    setHasOpened(!!window.localStorage.getItem("modal"));
-  }, []);
-
-  return (
-    <Dialog open={!hasOpened} onClicked={onClicked} onStopped={onStopped} />
-  );
+  return open && <Dialog {...{ onClicked, onStopped }} />;
 }
 
 function useLockBodyScroll() {
@@ -29,13 +30,7 @@ function useLockBodyScroll() {
   }, []);
 }
 
-function Dialog(props: {
-  open: boolean;
-  onClicked: () => void;
-  onStopped: () => void;
-}) {
-  if (!props.open) return null;
-
+function Dialog(props: { onClicked: () => void; onStopped: () => void }) {
   useLockBodyScroll();
 
   return (
@@ -46,6 +41,7 @@ function Dialog(props: {
           className={styles["alert-dialog"]}
           onClick={(e) => {
             e.stopPropagation();
+            props.onClicked();
           }}
         >
           <strong className={styles["alert-dialog__heading"]}>
