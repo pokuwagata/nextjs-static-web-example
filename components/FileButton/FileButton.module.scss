@@ -1,3 +1,25 @@
-p {
-  color: aqua;
+.hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(1px);
+}
+
+.label {
+  position: relative;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  background-color: royalblue;
+  border: solid 1px royalblue;
+  border-radius: 100px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.21);
+  transition: all ease-in-out 0.1s;
+}
+
+.label:hover {
+  background-color: #5a7be0;
 }

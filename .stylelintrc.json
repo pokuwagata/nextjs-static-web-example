@@ -1,7 +1,9 @@
 {
-  "extends": ["stylelint-config-recommended-scss", "stylelint-config-prettier"],
+  "extends": [
+    "stylelint-config-recommended-scss",
+    "stylelint-config-prettier",
+    "stylelint-config-recess-order"
+  ],
   "plugins": ["stylelint-order"],
-  "rules": {
-    "order/properties-alphabetical-order": true
-  }
+  "rules": {}
 }

@@ -17,5 +17,10 @@ const Template: Story<ComponentProps<typeof FileButton>> = (args) => (
 
 export const FirstStory = Template.bind({});
 FirstStory.args = {
-  /*👇 The args you need here will depend on your component */
+  text: "hoge",
+};
+
+export const SecondStory = Template.bind({});
+SecondStory.args = {
+  text: "hogehoge",
 };
